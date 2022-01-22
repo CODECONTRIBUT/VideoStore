@@ -20,14 +20,44 @@ namespace VideoStore.Models
 
     public class ApplicationDbContext : IdentityDbContext<ApplicationUser>
     {
+        public DbSet<Customer> Customers { get; set; }
+        public DbSet<Movie> Movies { get; set; }
+        public DbSet<MembershipType> MembershipTypes { get; set; }
+        public DbSet<Genre> Genres { get; set; }
+
         public ApplicationDbContext()
             : base("DefaultConnection", throwIfV1Schema: false)
         {
         }
-
+            
         public static ApplicationDbContext Create()
         {
             return new ApplicationDbContext();
+        }
+        protected override void OnModelCreating(DbModelBuilder modelBuilder)
+        {
+            modelBuilder.Entity<Customer>()
+                .Property(c => c.Name)
+                .IsRequired()
+                .HasMaxLength(255);
+
+            modelBuilder.Entity<Movie>()
+                .Property(m => m.Name)
+                .IsRequired()
+                .HasMaxLength(2000);
+
+            modelBuilder.Entity<MembershipType>()
+                .Property(mt => mt.Name)
+                .IsRequired()
+                .HasMaxLength(1000);
+
+            modelBuilder.Entity<Genre>()
+                .Property(g => g.Name)
+                .IsRequired()
+                .HasMaxLength(2000);
+
+
+            base.OnModelCreating(modelBuilder);
         }
     }
 }
