@@ -13,7 +13,7 @@ namespace VideoStore.Models
         [Required]
         public string Name { get; set; }
 
-        public Genre Genres { get; set; }
+        public Genre Genre { get; set; }
 
         [Display(Name="Genre")]
         [Required]

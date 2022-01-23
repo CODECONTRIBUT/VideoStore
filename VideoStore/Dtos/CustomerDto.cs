@@ -17,6 +17,8 @@ namespace VideoStore.Dtos
 
         public bool IsSubscribedToNewsletter { get; set; }
 
+        public MembershipTypeDto MembershipType { get; set; }
+
         [Required(ErrorMessage = "Please choose a Memebership type.")]
         public Byte MemberShipTypeId { get; set; }
 

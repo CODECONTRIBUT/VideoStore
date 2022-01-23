@@ -23,11 +23,18 @@ namespace VideoStore.Controllers
             _context.Dispose();
         }
         // GET: Customers
-        public ActionResult Index()
-        {
-            var customers = _context.Customers.Include(c => c.MembershipType).ToList();
+        //public ActionResult Index()
+        //{
+        //    var customers = _context.Customers.Include(c => c.MembershipType).ToList();
 
-            return View(customers);
+        //    return View(customers);
+
+        //}
+
+        public ActionResult Index()
+        { 
+
+            return View();
 
         }
 

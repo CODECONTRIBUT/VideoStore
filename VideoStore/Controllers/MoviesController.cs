@@ -23,16 +23,22 @@ namespace VideoStore.Controllers
         }
         // GET: Movies
 
+        //public ActionResult Index()
+        //{
+        //    var movies = _context.Movies.Include(m => m.Genres).ToList();
+
+        //    return View(movies);
+        //}
+
         public ActionResult Index()
         {
-            var movies = _context.Movies.Include(m => m.Genres).ToList();
 
-            return View(movies);
+            return View();
         }
 
         public ActionResult Details(int Id)
         {
-            var movie = _context.Movies.Include(m=>m.Genres).SingleOrDefault(m => m.Id == Id);
+            var movie = _context.Movies.Include(m=>m.Genre).SingleOrDefault(m => m.Id == Id);
             if (movie == null)
                 return HttpNotFound();
 

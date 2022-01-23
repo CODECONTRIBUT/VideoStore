@@ -13,11 +13,13 @@ namespace VideoStore.Dtos
         [Required]
         public string Name { get; set; }
 
+        public GenreDto Genre { get; set; }
+
         [Required]
         public Byte GenreId { get; set; }
 
         public DateTime ReleasedDate { get; set; }
-
+        
         public DateTime DateAdded { get; set; }
 
         [Range(1, 20)]
