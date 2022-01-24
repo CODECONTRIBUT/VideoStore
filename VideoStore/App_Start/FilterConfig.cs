@@ -8,6 +8,8 @@ namespace VideoStore
         public static void RegisterGlobalFilters(GlobalFilterCollection filters)
         {
             filters.Add(new HandleErrorAttribute());
+            //add authorization globally
+            filters.Add(new AuthorizeAttribute());
         }
     }
 }
