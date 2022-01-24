@@ -155,7 +155,8 @@ namespace VideoStore.Controllers
                 var user = new ApplicationUser
                   { UserName = model.Email,
                     Email = model.Email,
-                    DriverLicense = model.DriverLicense
+                    DriverLicense = model.DriverLicense,
+                    Phone = model.Phone
                   };
 
                 var result = await UserManager.CreateAsync(user, model.Password);
@@ -382,7 +383,8 @@ namespace VideoStore.Controllers
                 var user = new ApplicationUser
                 { UserName = model.Email,
                   Email = model.Email,
-                  DriverLicense = model.DriverLicense
+                  DriverLicense = model.DriverLicense,
+                  Phone = model.Phone
                 };
                 var result = await UserManager.CreateAsync(user);
                 if (result.Succeeded)

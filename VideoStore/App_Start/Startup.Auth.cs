@@ -55,8 +55,8 @@ namespace VideoStore
             //   consumerSecret: "");
 
             app.UseFacebookAuthentication(
-               appId: "616683729607642",
-               appSecret: "632abc893e0df04b144104a6a99b4a54");
+               appId: "304686245037842",
+               appSecret: "d462b4a8de21d4aa9ba0b50b81e7748a");
 
             //app.UseGoogleAuthentication(new GoogleOAuth2AuthenticationOptions()
             //{

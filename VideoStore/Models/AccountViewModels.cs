@@ -12,6 +12,9 @@ namespace VideoStore.Models
         [Required]
         [Display(Name = "Driver License")]
         public string DriverLicense { get; set; }
+
+        [MaxLength(50)]
+        public string Phone { get; set; }
     }
 
     public class ExternalLoginListViewModel
@@ -87,7 +90,11 @@ namespace VideoStore.Models
         [Required]
         [Display(Name ="Driver License")]
         public string DriverLicense { get; set; }
+
+        [MaxLength(50)]
+        public string Phone { get; set; }
     }
+
 
     public class ResetPasswordViewModel
     {
