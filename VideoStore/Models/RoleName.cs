@@ -5,7 +5,7 @@ using System.Web;
 
 namespace VideoStore.Models
 {
-    public static class RollName
+    public static class RoleName
     {
         public const string CanManageMovies = "CanManageMovies";
     }

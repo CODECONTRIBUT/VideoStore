@@ -32,7 +32,7 @@ namespace VideoStore.Controllers
 
         public ActionResult Index()
         {
-            if (User.IsInRole(RollName.CanManageMovies))
+            if (User.IsInRole(RoleName.CanManageMovies))
                 return View("List");
 
             return View("ReadOnlyList");
@@ -47,7 +47,7 @@ namespace VideoStore.Controllers
             return View(movie);
         }
 
-        [Authorize(Roles = RollName.CanManageMovies)]
+        [Authorize(Roles = RoleName.CanManageMovies)]
         public ActionResult New()
         {
             var genres = _context.Genres.ToList();
@@ -60,7 +60,7 @@ namespace VideoStore.Controllers
 
         [HttpPost]
         [ValidateAntiForgeryToken]
-        [Authorize(Roles = RollName.CanManageMovies)]
+        [Authorize(Roles = RoleName.CanManageMovies)]
         public ActionResult Save(Movie movie)
         {
             if (!ModelState.IsValid)
@@ -90,7 +90,7 @@ namespace VideoStore.Controllers
             return RedirectToAction("Index", "Movies");
         }
 
-        [Authorize(Roles = RollName.CanManageMovies)]
+        [Authorize(Roles = RoleName.CanManageMovies)]
         public ActionResult Edit(int Id)
         {
             var movieInDb = _context.Movies.SingleOrDefault(m => m.Id == Id);

@@ -10,6 +10,7 @@ namespace VideoStore
             filters.Add(new HandleErrorAttribute());
             //add authorization globally
             filters.Add(new AuthorizeAttribute());
+            filters.Add(new RequireHttpsAttribute());
         }
     }
 }
