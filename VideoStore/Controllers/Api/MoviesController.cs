@@ -44,6 +44,7 @@ namespace VideoStore.Controllers.Api
         { if (!ModelState.IsValid)
                 return BadRequest();
 
+            movieDto.DateAdded = DateTime.Now;
             var movie = Mapper.Map<MovieDto, Movie>(movieDto);
             _context.Movies.Add(movie);
             _context.SaveChanges();
