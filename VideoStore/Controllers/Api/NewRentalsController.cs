@@ -21,12 +21,24 @@ namespace VideoStore.Controllers.Api
         [HttpPost]
         public IHttpActionResult CreateNewRentals(NewRentalDto newRental)
         {
-            var customer = _context.Customers.Single(c => c.Id == newRental.CustomerId);
+            if (newRental.MovieIds.Count == 0)
+                return BadRequest("No Movies are choosen.");
 
-            var movies = _context.Movies.Where(m => newRental.MovieIds.Contains(m.Id));
+            var customer = _context.Customers.SingleOrDefault(c => c.Id == newRental.CustomerId);
+            if (customer == null)
+                return BadRequest("This customer does not exist.");
+
+            var movies = _context.Movies.Where(m => newRental.MovieIds.Contains(m.Id)).ToList();
+            if (movies.Count != newRental.MovieIds.Count)
+                return BadRequest("One or more movies are not available.");
 
             foreach (var movie in movies)
             {
+                if (movie.NumberAvailable == 0)
+                    return BadRequest("Movie" + movie.Name + " is not available. Please check out the inventory");
+
+                movie.NumberAvailable--;
+
                 var rental = new Rental
                 {
                     Customer = customer,
@@ -36,8 +48,6 @@ namespace VideoStore.Controllers.Api
 
                 _context.Rentals.Add(rental);
 
-                var rentalInDb = _context.Movies.Single(m => m.Id == movie.Id);
-                rentalInDb.NumberAvailable -= 1;
                 
             }
             _context.SaveChanges();
