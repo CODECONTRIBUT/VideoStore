@@ -27,5 +27,7 @@ namespace VideoStore.Models
         [Range(1, 20)]
         [Display(Name="Number in Stock")]
         public int NumberInStock { get; set; }
+
+        public int NumberAvailable { get; set; }
     }
 }
