@@ -321,6 +321,10 @@
     <Compile Include="Migrations\202201260710558_AddNumberAvailablePropertyInMovie.Designer.cs">
       <DependentUpon>202201260710558_AddNumberAvailablePropertyInMovie.cs</DependentUpon>
     </Compile>
+    <Compile Include="Migrations\202201260718194_SeedNumberAvailableFromNumberInStock.cs" />
+    <Compile Include="Migrations\202201260718194_SeedNumberAvailableFromNumberInStock.Designer.cs">
+      <DependentUpon>202201260718194_SeedNumberAvailableFromNumberInStock.cs</DependentUpon>
+    </Compile>
     <Compile Include="Migrations\Configuration.cs" />
     <Compile Include="Models\AccountViewModels.cs" />
     <Compile Include="Models\Customer.cs" />
@@ -645,6 +649,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Migrations\202201260710558_AddNumberAvailablePropertyInMovie.resx">
       <DependentUpon>202201260710558_AddNumberAvailablePropertyInMovie.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\202201260718194_SeedNumberAvailableFromNumberInStock.resx">
+      <DependentUpon>202201260718194_SeedNumberAvailableFromNumberInStock.cs</DependentUpon>
     </EmbeddedResource>
   </ItemGroup>
   <PropertyGroup>

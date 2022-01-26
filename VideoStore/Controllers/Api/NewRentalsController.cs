@@ -35,6 +35,10 @@ namespace VideoStore.Controllers.Api
                 };
 
                 _context.Rentals.Add(rental);
+
+                var rentalInDb = _context.Movies.Single(m => m.Id == movie.Id);
+                rentalInDb.NumberAvailable -= 1;
+                
             }
             _context.SaveChanges();
 
