@@ -33,8 +33,8 @@ namespace VideoStore
             //          "~/Scripts/bootbox.js"));
 
             bundles.Add(new StyleBundle("~/Content/css").Include(
-                     "~/Content/bootstrap.css",
                      "~/Content/bootstrap-spacelab.css",
+                     "~/Content/bootstrap.css",
                      "~/Content/datatables/css/datatables.bootstrap.css",
                      "~/Content/typeahead.css",
                      "~/Content/toastr.css",

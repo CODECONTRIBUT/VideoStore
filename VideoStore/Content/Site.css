@@ -1,15 +1,25 @@
-﻿/*
-    body {
+﻿:root {
+    --bs-font-sans-serif: "Open Sans", -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue", Arial, sans-serif, "Apple Color Emoji", "Segoe UI Emoji", "Segoe UI Symbol";
+    --bs-font-monospace: SFMono-Regular, Menlo, Monaco, Consolas, "Liberation Mono", "Courier New", monospace;
+    --bs-gradient: linear-gradient(180deg, rgba(255, 255, 255, 0.15), rgba(255, 255, 255, 0));
+    --bs-body-font-family: var(--bs-font-sans-serif);
+    --bs-body-font-weight: 400;
+    --bs-body-color: #777;
+}
+
+body {
+    font-family: var(--bs-body-font-family);
+    font-weight: var(--bs-body-font-weight);
+    color: var(--bs-body-color);
     padding-top: 50px;
     padding-bottom: 20px;
 }
-*/
 
-
-/* Set padding to keep content from hitting the edges */
+    /* Set padding to keep content from hitting the edges */
 .body-content {
     padding-left: 15px;
     padding-right: 15px;
+    margin-top: 20px;
 }
 
 /* Override the default bootstrap behavior where horizontal description lists 
@@ -55,4 +65,19 @@ input.error{
 }
 .validation-summary-errors {
     color: red;
+}
+.btn-default {
+    background-color: #eceff1;
+}
+label{
+    font-weight: 500;
+}
+.input-sm {
+    text-align:center;
+    font-size: 13px;
+    padding-top: 0px;
+    padding-bottom: 0px;
+}
+.navbar {
+    padding-right: 1rem;
 }
