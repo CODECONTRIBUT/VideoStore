@@ -6,7 +6,7 @@
 
 <h2>Customers</h2>
 
-@Html.ActionLink("New Customer", "New", "Customers", new { @class = "btn btn-primary" })
+@Html.ActionLink("New Customer", "New", "Customers", new { @class = "btn btn-primary btn-main" })
 
 <table id="customers" class="table table-bordered table-hover">
     <thead>
@@ -66,29 +66,29 @@
             $("#customers").on("click", ".js-delete", function () {
                 var button = $(this);
 
-                 //bootbox not show here, need to fix next.
+               //  fixed bootbox not shown bug: put bootstrap.css goes after bootstrap-spacelab.css. 
                  
-                //bootbox.confirm("confirm to delete this customer?", function (result) {
-                //    if (result) {
-                //        $.ajax({
-                //            url: "/api/customers/" + button.attr("data-customer-id"),
-                //            method: "delete",
-                //            success: function () {
-                //                button.parents("tr").remove();
-                //            }
-                //        });
-                //    }
-                //});
-
-                if (confirm("Confirm to delete this customer?")) {
-                    $.ajax({
+                bootbox.confirm("confirm to delete this customer?", function (result) {
+                    if (result) {
+                        $.ajax({
                             url: "/api/customers/" + button.attr("data-customer-id"),
-                            method: "DELETE",
-                        success: function () {
-                            table.row(button.parents("tr")).remove().draw();
+                            method: "delete",
+                            success: function () {
+                                button.parents("tr").remove();
                             }
                         });
-                }
+                    }
+                });
+
+                //if (confirm("Confirm to delete this customer?")) {
+                //    $.ajax({
+                //            url: "/api/customers/" + button.attr("data-customer-id"),
+                //            method: "DELETE",
+                //        success: function () {
+                //            table.row(button.parents("tr")).remove().draw();
+                //            }
+                //        });
+                //}
             });
         });
     </Script>

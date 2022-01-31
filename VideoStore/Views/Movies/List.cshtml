@@ -7,7 +7,7 @@
 
 <h2>Movies</h2>
 
-@Html.ActionLink("New Movie", "New", "Movies", null, new { @class="btn btn-primary"})
+@Html.ActionLink("New Movie", "New", "Movies", null, new { @class="btn btn-primary btn-main"})
 
 <table id="movies" class="table table-bordered table-hover">
     <thead>
@@ -64,15 +64,27 @@
 
 
              var button = $(this);
-             if (confirm("Confirm to delete this movie?")) {
-                 $.ajax({
-                     url: "/api/movies/" + button.attr("data-movie-id"),
-                     method: "DELETE",
-                     success: function () {
-                         table.row(button.parents("tr")).remove().draw();
-                     }
-                 });
-             }
+   
+             bootbox.confirm("confirm to delete this customer?", function (result) {
+                 if (result) {
+                     $.ajax({
+                         url: "/api/customers/" + button.attr("data-customer-id"),
+                         method: "delete",
+                         success: function () {
+                             button.parents("tr").remove();
+                         }
+                     });
+                 }
+             });
+             //if (confirm("Confirm to delete this movie?")) {
+             //    $.ajax({
+             //        url: "/api/movies/" + button.attr("data-movie-id"),
+             //        method: "DELETE",
+             //        success: function () {
+             //            table.row(button.parents("tr")).remove().draw();
+             //        }
+             //    });
+             //}
          });
      });
  </script>
